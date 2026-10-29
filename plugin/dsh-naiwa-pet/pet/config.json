@@ -1,0 +1,13 @@
+{
+  "balance": {
+    "provider": "auto",
+    "apiKey": "",
+    "baseUrl": "https://api.deepseek.com",
+    "currency": "CNY",
+    "customUrl": "",
+    "customLabel": "自定义接口",
+    "customHeader": "Authorization",
+    "customHeaderValue": "Bearer {key}",
+    "customJsonPath": ""
+  }
+}

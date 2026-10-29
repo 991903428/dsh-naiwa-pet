@@ -1,0 +1,13 @@
+# build output
+bin/
+temp/
+*.log
+
+# local research / scratch (never publish)
+.research/
+publish/plugin/dsh-naiwa-pet/pet/assets/
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store

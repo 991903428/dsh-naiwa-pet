@@ -1,0 +1,63 @@
+{
+  "name": "dsh-naiwa-pet",
+  "version": "1.0.0",
+  "description": "奶蛙桌宠：DSH 启动时，一只会眨眼、会转头、会捧腹大笑的奶蛙出现在 Windows 桌面上；左键点它笑，右键看余额或取消桌宠。附带 naiwa_pet / naiwa_balance 两个工具。",
+  "license": "MIT",
+  "author": {
+    "name": "dsh-naiwa-pet contributors"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENCE",
+    "icon.png",
+    "pet"
+  ],
+  "os": [
+    "win32"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "desktop-pet",
+    "naiwa"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OWNER/REPO.git",
+    "directory": "plugin/dsh-naiwa-pet"
+  },
+  "homepage": "https://github.com/OWNER/REPO#readme",
+  "contributors": [
+    {
+      "name": "yugh6",
+      "url": "https://github.com/yugh6/Naiwa",
+      "comment": "Naiwa original character, artwork, soundtrack and base renderer (PolyForm Noncommercial 1.0.0)"
+    }
+  ],
+  "engines": {
+    "dsh": ">=44.0.0"
+  }
+}

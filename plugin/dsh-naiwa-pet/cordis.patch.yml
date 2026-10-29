@@ -1,0 +1,16 @@
+# dsh-naiwa-pet：把奶蛙桌宠插进 DeepSeek Harness。
+#
+# 这一行把宿主半边（package.json 的 exports["."] = index.js）挂进 profile 的
+# 插件名单：DSH 启动时会拉起桌宠、注册 naiwa_pet 与 naiwa_balance 两个工具。
+# config 里把每个键都写全，后续层可以只覆盖其中一项。
+#
+#   autoStart   true  随 DSH 启动自动把奶蛙放出来（已经在桌面就不重复启动）
+#   exePath     ""    自定义桌宠主程序路径；留空用包内 pet/奶蛙桌宠.exe
+#   stopOnExit  true  DSH 退出时是否顺手把桌宠也收走
+- insert:
+    - id: naiwa-pet
+      name: dsh-naiwa-pet
+      config:
+        autoStart: true
+        exePath: ""
+        stopOnExit: true
