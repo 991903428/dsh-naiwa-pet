@@ -13,11 +13,13 @@
 
 ## 装
 
-```bash
-dsh plugin --profile desktop add /path/to/dsh-naiwa-pet
-```
+三种都行：
 
-或者在本会话里用 `plugin_manager` 的 `install_bundle`，target 指向这个目录。装完重启 DSH（或热重载），奶蛙就会自己出来。
+1. **插件市场**：在 DSH 插件市场里添加索引地址 `https://raw.githubusercontent.com/<owner>/<repo>/main/market/index.json`，搜「奶蛙」安装。
+2. **本地目录**：`dsh plugin --profile desktop add <repo>/plugin/dsh-naiwa-pet`（或让 agent 用 `plugin_manager` 的 `install_bundle` 指向该目录）。
+3. **直接跑**：把 `pet/` 整个拷出来，双击 `奶蛙桌宠.exe`。
+
+装完重启 DSH（或热重载），奶蛙就会自己出来。包内自带素材：`pet/素材.nwp`（动画帧）+ `pet/原版笑声.wav`，不需要额外下载。
 
 ## 配
 
@@ -68,4 +70,6 @@ LICENCE             原作者许可
 
 ## 署名与许可
 
-形象、动画、笑声全部来自 [yugh6/Naiwa](https://github.com/yugh6/Naiwa)（作者 yugh6，抖音「握石竹」）。原项目使用 PolyForm Noncommercial License 1.0.0：**仅限个人非商业使用**，转发请注明作者与原项目地址，不得冒充原创。本插件只是把它接到了 DSH 上，遵循同一许可。
+形象、动画、笑声全部来自 [yugh6/Naiwa](https://github.com/yugh6/Naiwa)（作者 yugh6，抖音「握石竹」）。这些素材使用 PolyForm Noncommercial License 1.0.0：**仅限个人非商业使用**，转发请注明作者与原项目地址，不得冒充原创 —— 见 `LICENCE`。
+
+本包新增的代码（`index.js`、`client.js`、`cordis.patch.yml`、`package.json`、`src/`）是 MIT，见仓库根目录 `LICENSE`。
