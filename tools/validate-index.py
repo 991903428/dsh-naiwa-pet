@@ -5,7 +5,8 @@ Rules mirrored from @deepseek-ai/dsh-plugin-market-index (lib/index.js):
     at least one of "en"/"zh"), description/metadata optional
   * metadata.categories[]: { id, title(localized) }
   * plugins[]: { name(valid npm name), title/description/icon/author/homepage/
-    repository optional, metadata.category?, versions[] non-empty }
+    repository? {url, directory?}, metadata.category?, versions[] non-empty }
+  * metadata.categories is an object keyed by id: {"fun": {"title": {...}}}
   * versions[]: { version(exact semver), publishTimestamp(int seconds),
     source: {type:'npm'|'git', ...}, engines?: {dsh?: semver range} }
   * git source: commit must be 40 lowercase hex, url must be https with at least
@@ -54,10 +55,12 @@ def main(path: str) -> int:
         localized(index["description"], "description")
 
     metadata = index.get("metadata") or {}
-    categories = {c.get("id") for c in metadata.get("categories", []) if isinstance(c, dict)}
-    for i, category in enumerate(metadata.get("categories", [])):
-        check(bool(category.get("id")), f"metadata.categories[{i}].id", "required")
-        localized(category.get("title"), f"metadata.categories[{i}].title")
+    raw_categories = metadata.get("categories") or {}
+    check(isinstance(raw_categories, dict), "metadata.categories", "must be an object keyed by id")
+    categories = set(raw_categories)
+    for cid, category in raw_categories.items():
+        check(isinstance(category, dict), f"metadata.categories.{cid}", "must be an object")
+        localized(category.get("title"), f"metadata.categories.{cid}.title")
 
     seen: set[tuple[str, str]] = set()
     for i, plugin in enumerate(index.get("plugins", [])):
@@ -106,7 +109,11 @@ def main(path: str) -> int:
                 check(bool(HEX40.match(source.get("commit", ""))), f"{vbase}.source.commit",
                       "40 lowercase hex")
                 if "path" in source:
-                    check(source["path"].startswith("/"), f"{vbase}.source.path", "must start with /")
+                    pkg_path = source["path"]
+                    check(isinstance(pkg_path, str) and pkg_path != "", f"{vbase}.source.path", "must be a non-empty string")
+                    segments = pkg_path.split("/")
+                    check(not pkg_path.startswith("/"), f"{vbase}.source.path", "must be relative (no leading /)")
+                    check(all(seg not in (".", "..", "") for seg in segments), f"{vbase}.source.path", "must not contain empty, . or .. segments")
             engines = version.get("engines") or {}
             if "dsh" in engines:
                 check(isinstance(engines["dsh"], str) and bool(engines["dsh"].strip()),

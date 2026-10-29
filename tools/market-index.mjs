@@ -15,12 +15,11 @@ export function buildIndex({ owner, repo, commit, publishTimestamp }) {
       zh: 'Windows 桌面上的奶蛙桌宠：左键点它就笑，右键看 DeepSeek 余额、调大小、取消桌宠。',
     },
     metadata: {
-      categories: [
-        {
-          id: 'fun',
+      categories: {
+        fun: {
           title: { en: 'Fun', zh: '趣味' },
         },
-      ],
+      },
     },
     plugins: [
       {
@@ -33,7 +32,7 @@ export function buildIndex({ owner, repo, commit, publishTimestamp }) {
         icon: `${rawBase}/plugin/dsh-naiwa-pet/icon.png`,
         author: 'dsh-naiwa-pet contributors',
         homepage: site,
-        repository: site,
+        repository: { url: site },
         metadata: {
           category: 'fun',
           keywords: ['desktop-pet', 'naiwa', 'balance'],
@@ -46,7 +45,7 @@ export function buildIndex({ owner, repo, commit, publishTimestamp }) {
               type: 'git',
               url: `${site}.git`,
               commit,
-              path: '/plugin/dsh-naiwa-pet',
+              path: 'plugin/dsh-naiwa-pet',
             },
             engines: { dsh: '>=44.0.0' },
           },

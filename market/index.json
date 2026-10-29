@@ -9,15 +9,14 @@
     "zh": "Windows 桌面上的奶蛙桌宠：左键点它就笑，右键看 DeepSeek 余额、调大小、取消桌宠。"
   },
   "metadata": {
-    "categories": [
-      {
-        "id": "fun",
+    "categories": {
+      "fun": {
         "title": {
           "en": "Fun",
           "zh": "趣味"
         }
       }
-    ]
+    }
   },
   "plugins": [
     {
@@ -33,7 +32,9 @@
       "icon": "https://raw.githubusercontent.com/991903428/dsh-naiwa-pet/main/plugin/dsh-naiwa-pet/icon.png",
       "author": "dsh-naiwa-pet contributors",
       "homepage": "https://github.com/991903428/dsh-naiwa-pet",
-      "repository": "https://github.com/991903428/dsh-naiwa-pet",
+      "repository": {
+        "url": "https://github.com/991903428/dsh-naiwa-pet"
+      },
       "metadata": {
         "category": "fun",
         "keywords": [
@@ -50,7 +51,7 @@
             "type": "git",
             "url": "https://github.com/991903428/dsh-naiwa-pet.git",
             "commit": "9322295f0e456abf5221f3314634c82e91da19fc",
-            "path": "/plugin/dsh-naiwa-pet"
+            "path": "plugin/dsh-naiwa-pet"
           },
           "engines": {
             "dsh": ">=44.0.0"
