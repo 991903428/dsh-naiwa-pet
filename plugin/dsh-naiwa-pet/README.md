@@ -15,8 +15,8 @@
 
 三种都行：
 
-1. **插件市场**：在 DSH 插件市场里添加索引地址 `https://raw.githubusercontent.com/<owner>/<repo>/main/market/index.json`，搜「奶蛙」安装。
-2. **本地目录**：`dsh plugin --profile desktop add <repo>/plugin/dsh-naiwa-pet`（或让 agent 用 `plugin_manager` 的 `install_bundle` 指向该目录）。
+1. **插件市场**：在 DSH 插件市场里添加索引地址 `https://raw.githubusercontent.com/991903428/dsh-naiwa-pet/main/market/index.json`，搜「奶蛙」安装。
+2. **本地目录**：`dsh plugin --profile desktop add <本地仓库>\plugin\dsh-naiwa-pet`（或让 agent 用 `plugin_manager` 的 `install_bundle` 指向该目录）。
 3. **直接跑**：把 `pet/` 整个拷出来，双击 `奶蛙桌宠.exe`。
 
 装完重启 DSH（或热重载），奶蛙就会自己出来。包内自带素材：`pet/素材.nwp`（动画帧）+ `pet/原版笑声.wav`，不需要额外下载。

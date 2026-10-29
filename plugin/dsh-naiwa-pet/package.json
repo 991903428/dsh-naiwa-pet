@@ -46,10 +46,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OWNER/REPO.git",
+    "url": "https://github.com/991903428/dsh-naiwa-pet.git",
     "directory": "plugin/dsh-naiwa-pet"
   },
-  "homepage": "https://github.com/OWNER/REPO#readme",
+  "homepage": "https://github.com/991903428/dsh-naiwa-pet#readme",
   "contributors": [
     {
       "name": "yugh6",
